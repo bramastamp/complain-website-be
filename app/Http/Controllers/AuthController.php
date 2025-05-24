@@ -14,12 +14,14 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|confirmed',
+            'role' => 'in:user,admin', // validasi role opsional
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'role' => 'user',
         ]);
 
         return response()->json(['message' => 'User registered']);
