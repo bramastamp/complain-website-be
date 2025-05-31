@@ -10,9 +10,4 @@ class KategoriPengaduan extends Model
     {
         return $this->hasMany(Pengaduan::class, 'kategori_id');
     }
-
-    public function getNamaAttribute()
-    {
-        return $this->nama_kategori;
-    }
 }
